@@ -1,0 +1,10 @@
+// wrangler.jsonc
+{
+  "name": "your-worker-name",
+  "compatibility_date": "2026-04-04",
+  "main": "./src/index.js",
+  "build": {
+    "command": "npm run build"
+  }
+  // Avoid settings that trigger Vite auto-config
+}
