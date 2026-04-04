@@ -1,0 +1,167 @@
+:root {
+    --bg-color: #ffffff;
+    --text-primary: #111111;
+    --text-secondary: #888888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-primary);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+    padding: 0 10%;
+}
+
+/* 1. Main Display */
+.main-shoe-display {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+}
+
+#main-shoe-img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    object-fit: contain;
+    transform-origin: center;
+    transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease;
+    filter: drop-shadow(0 30px 25px rgba(0,0,0,0.1));
+}
+
+#main-shoe-img.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: blur(10px);
+}
+
+.levitate {
+    animation: floating 8s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px) rotate(-5deg); }
+    50% { transform: translateY(-30px) rotate(-3deg); }
+    100% { transform: translateY(0px) rotate(-5deg); }
+}
+
+/* 2. Text Label */
+.section-label {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 4px;
+    margin-left: 2rem;
+    margin-right: 4rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    transform: rotate(-90deg);
+}
+
+/* 3. Selector Column */
+.shoe-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    z-index: 10;
+}
+
+.selector-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.selector-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    transform: scale(0.85);
+}
+
+.selector-btn.active::before,
+.selector-btn:hover::before {
+    border-color: #111111;
+    transform: scale(1);
+}
+
+.btn-inner {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.selector-btn:hover .btn-inner {
+    background-color: #eeeeee;
+}
+
+.selector-btn.active .btn-inner {
+    background-color: #e0e0e0;
+}
+
+.btn-inner img {
+    width: 150%;
+    height: 150%;
+    object-fit: contain;
+    mix-blend-mode: multiply; /* Helps the tiny thumbnail images look cleaner on the grey circle */
+    transform: rotate(-10deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .app-container {
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 5% 0;
+    }
+    .section-label {
+        margin: 0;
+        margin-bottom: 2rem;
+        transform: none;
+    }
+    .shoe-selector {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    #main-shoe-img {
+        max-width: 600px;
+    }
+}

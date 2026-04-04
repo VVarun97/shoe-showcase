@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AERA | Model Selection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app-container" id="app-container">
+        
+        <!-- Large Main Display -->
+        <div class="main-shoe-display">
+            <!-- Render Raw Image directly to prevent canvas anti-aliasing issues -->
+            <img id="main-shoe-img" class="levitate" src="assets/shoe_red.png" alt="Featured Shoe">
+        </div>
+
+        <!-- Center Label -->
+        <div class="section-label">Colorways</div>
+
+        <!-- Right Side Selectors -->
+        <div class="shoe-selector">
+            <button class="selector-btn active" data-src="assets/shoe_red.png">
+                <div class="btn-inner">
+                    <img src="assets/shoe_red.png" alt="Red Model" crossorigin="anonymous">
+                </div>
+            </button>
+            
+            <button class="selector-btn" data-src="assets/shoe_orange.png">
+                <div class="btn-inner">
+                    <img src="assets/shoe_orange.png" alt="Orange Model" crossorigin="anonymous">
+                </div>
+            </button>
+            
+            <button class="selector-btn" data-src="assets/shoe_yellow.png">
+                <div class="btn-inner">
+                    <img src="assets/shoe_yellow.png" alt="Yellow Model" crossorigin="anonymous">
+                </div>
+            </button>
+            
+            <button class="selector-btn" data-src="assets/shoe_blue.png">
+                <div class="btn-inner">
+                    <img src="assets/shoe_blue.png" alt="Blue Model" crossorigin="anonymous">
+                </div>
+            </button>
+        </div>
+        
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
