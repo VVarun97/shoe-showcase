@@ -1,2 +1,4 @@
 # shoe-showcase
-Shoe Showcase
+Shoe Showcase:
+
+https://vvarun97.github.io/shoe-showcase/
